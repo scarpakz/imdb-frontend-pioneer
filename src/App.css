@@ -1,6 +1,58 @@
+body {
+  background: rgb(94,94,175);
+  background: radial-gradient(circle, rgba(94,94,175,1) 4%, rgba(0,0,0,1) 76%);
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+.pioneer-imdb-container {
+  color: #fff;
+  margin-top: 150px;
+}
+
+/* SEARCH */
+.pioneer-search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.pioneer-search-container .input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.pioneer-search-container input {
+  max-width: 600px;
+}
+
+/* CARDS */
+.pioneer-card-container {
+  margin: 20px 0;
+}
+.card {
+  height: 100% !important;
+}
+
+/* START MOVIE DETAIL CSS */
+.pioneer-detail-content {
+  padding: 50px 0;
+}
+.pioneer-detail-poster-image-group img {
+  width: 100%;
+  cursor: pointer;
+}
+.pioneer-detail-genre {
+  margin: 25px 0;
+}
+.pioneer-detail-genre span{
+  border: solid 1px #fff;
+  border-radius: 50px;
+  padding: 10px 20px;
 }
