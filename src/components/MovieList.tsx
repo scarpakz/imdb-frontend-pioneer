@@ -1,7 +1,9 @@
 import { MovieCard } from "./MovieCard"
 import { useEffect, useState } from "react"
 import axios from "axios"
+
 import {TypeMovieCard} from '../constant/types'
+import {Spinner} from '../components/Spinner'
 
 interface MovieListProps {
     title: string;
@@ -30,7 +32,7 @@ export const MovieList: React.FC<MovieListProps> = ({title}) => {
                         {...item}
                     />
                 )) :
-                <p>Empty</p>
+                <Spinner />
             }
         </>
     )
