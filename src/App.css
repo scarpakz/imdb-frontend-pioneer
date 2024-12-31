@@ -36,6 +36,9 @@ body {
 .pioneer-card-container {
   margin: 20px 0;
 }
+.card {
+  height: 100% !important;
+}
 
 /* START MOVIE DETAIL CSS */
 .pioneer-detail-content {
