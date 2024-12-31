@@ -7,6 +7,9 @@ export const Home = () => {
 
     const handleSetTitle = (e: any) => {
         setTitle(e.target.value)
+        if (e.target.value.trim().length === 0) {
+            window.location.reload()
+        }
     }
 
     return (
@@ -18,7 +21,7 @@ export const Home = () => {
                             <h1 className="text-center">IMDB Pioneer Dev AI</h1>
                             <div className="input-group input-group-lg">
                                 <span className="input-group-text" id="inputGroup-sizing-lg">Search</span>
-                                <input type="text" value={title} onChange={handleSetTitle} placeholder="Enter a movie title.." className="form-control" />
+                                <input type="text" onChange={handleSetTitle} placeholder="Enter a movie title.." className="form-control" />
                             </div>
                         </div>
                     </div>
