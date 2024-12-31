@@ -10,7 +10,7 @@ export const Home = () => {
     const handleSetTitle = (e: any) => {
         setTitle(e.target.value)
         if (e.target.value.trim().length === 0) {
-            window.location.reload()
+            setTitle('batman')
         }
     }
     
@@ -36,7 +36,7 @@ export const Home = () => {
                     <h1 data-aos="fade-right">Movies</h1>
                 </div>
                 <div className="row row-cols-2 row-cols-md-3 g-4" data-aos="fade-right">
-                    <MovieList data-aos="flip-up" title={title}/>
+                    <MovieList title={title}/>
                 </div>
             </div>
         </>

@@ -6,7 +6,7 @@ import {TypeMovieCard} from '../constant/types'
 export const MovieCard = (item: TypeMovieCard) => {
     return (
         <>
-            <div className="col">
+            <div className="col" data-aos="fade-right" >
                 <div className="card">
                     <img src={item.Poster} className="card-img-top pioneer-card-img" alt={item.Title} />
                     <div className="card-body">
