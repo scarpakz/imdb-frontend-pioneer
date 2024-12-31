@@ -1,5 +1,5 @@
 import {SearchField} from '../components/SearchField'
-import {MovieCard} from '../components/MovieCard'
+import {MovieList} from '../components/MovieList'
 
 export const Home = () => {
     return (
@@ -11,8 +11,8 @@ export const Home = () => {
                 <div className="col-md-12">
                     <h1>Movies</h1>
                 </div>
-                <div className="row row-cols-1 row-cols-md-2 g-4">
-                    <MovieCard />
+                <div className="row row-cols-2 row-cols-md-4 g-4">
+                    <MovieList />
                 </div>
             </div>
         </>

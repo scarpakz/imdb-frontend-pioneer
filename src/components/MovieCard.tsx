@@ -1,15 +1,18 @@
 /**
  * Main Movie Card
  */
-export const MovieCard = () => {
+import {TypeMovieCard} from '../constant/types'
+
+export const MovieCard = (item: TypeMovieCard) => {
     return (
         <>
             <div className="col">
                 <div className="card">
-                    <img src="..." className="card-img-top" alt="..." />
+                    <img src={item.Poster} className="card-img-top" alt={item.Title} width={"30px"}/>
                     <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 className="card-title">{item.Title}</h5>
+                        <p>{item.Year}</p>
+                        <p>{item.Type}</p>
                     </div>
                 </div>
             </div>
