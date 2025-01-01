@@ -8,7 +8,7 @@ import {Spinner} from '../components/Spinner'
 interface MovieListProps {
     title: string;
 }
-export const MovieList: React.FC<MovieListProps> = ({title}) => {
+export const MovieList= ({title} : MovieListProps) => {
     const [items, setItems] = useState([])
 
     const requestItems = async () => {
@@ -32,7 +32,8 @@ export const MovieList: React.FC<MovieListProps> = ({title}) => {
                         {...item}
                     />
                 )) :
-                <Spinner />
+                // or empty
+                <Spinner /> 
             }
         </>
     )
