@@ -38,6 +38,16 @@ body {
   padding: 50px 0;
   color: #fff;
 }
+.pioneer-card-detail a {
+  text-decoration: none;
+}
+.pioneer-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  
+}
 .pioneer-detail-poster-image-group img {
   width: 100%;
   cursor: pointer;
@@ -49,4 +59,16 @@ body {
   border: solid 1px #fff;
   border-radius: 50px;
   padding: 10px 20px;
+}
+.pioneer-cast-group {
+  display: flex;
+  align-items: center;
+}
+.pioneer-back-btn {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+}
+.pioneer-back-btn button {
+  margin-top: 20px;
 }

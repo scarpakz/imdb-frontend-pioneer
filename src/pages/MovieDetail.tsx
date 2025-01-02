@@ -1,45 +1,76 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import {Spinner} from '../components/Spinner'
+import { Link } from "react-router-dom"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { TypeMovieDetails } from "../constant/types"
+
 export const MovieDetail = () => {
+    const {id} = useParams()
+    const [movie, setMovie] = useState<any>(null)
+
+    const requestItems = async () => {
+        const data: TypeMovieDetails = await axios
+        .get(`http://localhost:5000/api/v1/movie/${id}`)
+        .then((response: any) => {
+            return response.data
+        })
+        setMovie(data)
+    }
+
+    useEffect(() => {
+        AOS.init();
+        requestItems()
+    },[id])
+
     return (
         <>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12 col-sm-12">
-                        <div className="pioneer-detail-content">
-                            <h1>Superman</h1>
-                            <span>2025</span>
-                            <div className="pioneer-detail-poster-image-group">
-                                <img src="https://prd-rteditorial.s3.us-west-2.amazonaws.com/wp-content/uploads/2024/05/16134834/EWKA_Superman_Poster.jpg" alt="superman" />
+            {
+                movie ? 
+                <div className="container">
+                    <Link to={`/`} className="pioneer-back-btn">
+                        <button className="btn btn-danger">Back to homepage</button>
+                    </Link>
+                    <div className="row" data-aos="fade-right">
+                        <div className="col-md-6 col-sm-12">
+                            <div className="pioneer-detail-content">
+                                <div className="pioneer-detail-poster-image-group">
+                                    <img src={movie.Poster} alt={movie.Title}/>
+                                </div>
                             </div>
+                        </div>
+                        <div className="col-md-6 col-sm-12 pioneer-description">
                             <div className="pioneer-detail-genre">
-                                <span>Superhero</span>
-                                <span>Fantasy</span>
-                                <span>Sci-Fi</span>
+                                <h1>{movie.Title}</h1>
+                                <p>{movie.Year}</p>
+                                <p>{movie.Runtime}</p>
+                                <h4>{movie.Genre}</h4>
                             </div>
                             <div className="pioneer-cast-group">
                                 <div className="pioneer-rating">
-                                    {/* Change to star later */}
-                                    <span><strong>Ratings:</strong> 5</span>
+                                    <span><strong>Ratings:</strong> {movie.imdbRating}</span>
                                 </div>
                             </div>
                             <p>
-                                Follows the titular superhero as he reconciles his heritage with his human upbringing. He is the embodiment of truth, justice and the human way in a world that views this as old-fashioned.
+                                {movie.Plot}
                             </p>
                             <div className="pioneer-cast-group">
-                                <h4><strong>Director:</strong> James Gunn</h4>
+                                <h4><strong>Director:</strong> {movie.Director}</h4>
                             </div>
                             <div className="pioneer-cast-group">
-                                <h4>Cast</h4>
-                                <ul>
-                                    <li>James Hart</li>
-                                    <li>Jerry Siegel</li>
-                                    <li>Joe Shuster</li>
-                                    <li>David Corenswet</li>
-                                </ul>
+                                <span><strong>Actors: </strong>{movie.Actors}</span>
+                            </div>
+                            <div className="pioneer-cast-group">
+                                <span><strong>Awards: </strong>{movie.Awards}</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            :
+            <Spinner />
+            }
         </>
     )
 }

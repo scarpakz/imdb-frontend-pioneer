@@ -33,9 +33,9 @@ export const Home = () => {
                     </div>
                 </div>
                 <div className="col-md-12">
-                    <h1 data-aos="fade-right">Movies</h1>
+                    <h1 data-aos="fade-right" className='text-center'>Movies</h1>
                 </div>
-                <div className="row row-cols-2 row-cols-md-3 g-4" data-aos="fade-right">
+                <div className="row row-cols-2 row-cols-md-4 g-4 pioneer-card-detail" data-aos="fade-right">
                     <MovieList title={title}/>
                 </div>
             </div>

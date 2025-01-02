@@ -4,6 +4,7 @@ import axios from "axios"
 
 import {TypeMovieCard} from '../constant/types'
 import {Spinner} from '../components/Spinner'
+import { Link } from "react-router-dom"
 
 interface MovieListProps {
     title: string;
@@ -28,9 +29,12 @@ export const MovieList= ({title} : MovieListProps) => {
         <>
             {
                 items ? items.map((item: TypeMovieCard) => (
-                    <MovieCard
-                        {...item}
-                    />
+                    <Link to={`/movie/${item.imdbID}`} key={item.imdbID}>
+                        <MovieCard
+                            key={item.imdbID}
+                            {...item}
+                        />
+                    </Link>
                 )) :
                 // or empty
                 <Spinner /> 
